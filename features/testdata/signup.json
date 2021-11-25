@@ -1,0 +1,22 @@
+{
+    "firstname": "Niranjan",
+    "lastname": "Reddy",
+    "password": "cjbdfbkncjehf",
+    "DOB": {
+        "day": "5",
+        "Month": "November",
+        "Year": "2021"
+    },
+    "Address": {
+        "firstname": "Niranjan",
+        "lastname": "Reddy",
+        "company": "capgemini",
+        "Address": "India",
+        "City": "default",
+        "State": "Delware",
+        "PostalCode": "12345",
+        "Country": "United States",
+        "MobileNo": "0123456789",
+        "AliasAddress": "Everyone"
+    }
+}
