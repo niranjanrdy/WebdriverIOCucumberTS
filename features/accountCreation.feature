@@ -9,4 +9,4 @@ Feature: Create account for automationpractice
         Then I should be navigated to signup page
         When I enter all the fill data
         And I click on register button
-        Then I should navigated to some page
+        Then I should navigated to My Account page

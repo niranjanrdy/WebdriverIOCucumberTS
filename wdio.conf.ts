@@ -21,7 +21,7 @@ export const config: WebdriverIO.Config = {
     // will be called from there.
     //
     specs: [
-        './features/**/signup.feature'
+        './features/**/accountCreation.feature'
     ],
     // Patterns to exclude.
     exclude: [
@@ -140,7 +140,7 @@ export const config: WebdriverIO.Config = {
     cucumberOpts: {
         retry: 0,
         // <string[]> (file/dir) require files before executing features
-        require: ['./features/step-definitions/signup.spec.ts'],
+        require: ['./features/step-definitions/*.ts'],
         // <boolean> show full backtrace for errors
         backtrace: false,
         // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)

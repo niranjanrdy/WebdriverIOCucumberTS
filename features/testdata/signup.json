@@ -2,20 +2,21 @@
     "firstname": "Niranjan",
     "lastname": "Reddy",
     "password": "cjbdfbkncjehf",
-    "DOB": {
+    "DateOfBirth": {
         "day": "5",
-        "Month": "November",
-        "Year": "2021"
+        "Month": "11",
+        "Year": "1998"
     },
     "Address": {
         "firstname": "Niranjan",
         "lastname": "Reddy",
         "company": "capgemini",
-        "Address": "India",
+        "address1": "Jupiter",
+        "address2":"I wont say",
         "City": "default",
-        "State": "Delware",
+        "State": "4",
         "PostalCode": "12345",
-        "Country": "United States",
+        "Country": "21",
         "MobileNo": "0123456789",
         "AliasAddress": "Everyone"
     }
