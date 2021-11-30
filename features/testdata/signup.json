@@ -1,23 +1,20 @@
 {
-    "firstname": "Niranjan",
-    "lastname": "Reddy",
-    "password": "cjbdfbkncjehf",
-    "DateOfBirth": {
-        "day": "5",
-        "Month": "11",
-        "Year": "1998"
+    "email" :"niowfg@automation.com",
+    "firstName":"Niranjan",
+    "lastName":"Reddy",
+    "password":"jdgkij54",
+    "DateOfBirth":{
+        "day":"20",
+        "month":"8",
+        "year":"1998"
     },
-    "Address": {
-        "firstname": "Niranjan",
-        "lastname": "Reddy",
-        "company": "capgemini",
-        "address1": "Jupiter",
-        "address2":"I wont say",
-        "City": "default",
-        "State": "4",
-        "PostalCode": "12345",
-        "Country": "21",
-        "MobileNo": "0123456789",
-        "AliasAddress": "Everyone"
-    }
+    "company":"jdport.pvtltd",
+    "Address":"somewhere",
+    "City":"Down Town",
+    "state":"Arizona",
+    "PostalCode":"00000",
+    "AdditionalInfo":"Not Classified",
+    "PhoneNumber": "0123654789",
+    "AliasAddress":"Nikhil in USA"
+
 }
