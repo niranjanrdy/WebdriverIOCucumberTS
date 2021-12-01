@@ -4,6 +4,8 @@ class AddProductPage {
     get addProduct() { return $("[data-id-product='1']") }
     async addToCart() {
         await this.product.scrollIntoView()
+        await this.product.moveTo()
+        await this.addProduct.waitForClickable()
         await this.addProduct.click();
     }
     get productAddedPopUp() { return $("//h2") }
