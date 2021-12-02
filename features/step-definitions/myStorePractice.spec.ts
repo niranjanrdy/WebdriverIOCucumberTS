@@ -1,16 +1,18 @@
 import { Given, When, Then } from "@cucumber/cucumber"
 import myaccountPage from "../pageobjects/myaccount.page";
 import SignUpPage from "../pageobjects/signUpPage";
-import randomData from "faker"
-import addProductPage from "../pageobjects/addProductToCart.page";
-import CartSummaryPage from "../pageobjects/cartSummary.page"
-import confirmAddressPage from "../pageobjects/confirmAddress.page";
-import verificationPage from "../pageobjects/verification.page";
-import paymentPage from "../pageobjects/payment.page";
-import orderSummaryPage from "../pageobjects/orderSummary.page";
+import faker from "faker"
+import testData from "../testdata/signup.json"
+import addProductPage from "../pageobjects/cart/addProductToCart.page";
+import CartSummaryPage from "../pageobjects/cart/cartSummary.page"
+import confirmAddressPage from "../pageobjects/cart/confirmAddress.page";
+import verificationPage from "../pageobjects/cart/verification.page";
+import paymentPage from "../pageobjects/cart/payment.page";
+import orderSummaryPage from "../pageobjects/cart/orderSummary.page";
 import orderCompletionPage from "../pageobjects/orderCompletion.page";
 import landingPagePage from "../pageobjects/landingPage.page";
 import AuthenticationPage from "../pageobjects/Authentication.page";
+import signUpPage from "../pageobjects/signUpPage";
 
 
 Given("I landed on automation pratices page", async () => {
@@ -32,29 +34,16 @@ Then("I land on {string} page", async (headerText) => {
     await expect(SignUpPage.signupPageHeading).toHaveTextContaining(headerText);
 })
 When("I fill personal infromation click register", async () => {
-    await SignUpPage.genderElement.click();
-    await SignUpPage.firstName();
-    await SignUpPage.lastName();
-    await SignUpPage.password();
-    await SignUpPage.days();
-    await SignUpPage.months();
-    await SignUpPage.years();
-    await SignUpPage.clickLetterCheckBox();
-    await SignUpPage.CheckBox2();
-    await SignUpPage.address_firstName();
-    await SignUpPage.address_lastName();
-    await SignUpPage.company();
-    await SignUpPage.address();
-    await SignUpPage.address2();
-    await SignUpPage.city();
-    await SignUpPage.state();
-    await SignUpPage.postalCode();
-    await SignUpPage.country();
-    await SignUpPage.additional();
-    await SignUpPage.homePhone();
-    await SignUpPage.mobilePhone();
-    await SignUpPage.assignAddress();
-    await SignUpPage.register();
+    await signUpPage.clickTitle()
+    await signUpPage.setFirstAndLastName(testData.names)
+    await signUpPage.setPassword(faker.internet.password(8))
+    await signUpPage.selectDateOfBirth(testData.dateOfBirth)
+    await signUpPage.clickCheck()
+    await signUpPage.setCompany(testData.company)
+    await signUpPage.setAddress(testData.address)
+    await signUpPage.setMobileNumber(testData.mobileNumber)
+    await signUpPage.setAliasAddress(testData.aliasAdd)
+    await signUpPage.clickRegister()
 })
 
 Then("I should be landing on {string} page", async (headerText) => {

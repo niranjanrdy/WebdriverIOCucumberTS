@@ -1,166 +1,73 @@
 import Data from "../testdata/signup.json";
 import faker from 'faker';
-class SignUpPage{
+class SignUpPage {
 
-    get signupPageHeading(){
-        return $("//h1[text()='Create an account']")
-    }
+    get signupPageHeading() { return $("//h1[text()='Create an account']") }
 
-    get genderElement(){
-        return $("//input[@value='1' and @id ='id_gender1']")
-    }
-    get firstNameElement(){
-        return $("#customer_firstname");
-    }
-     first_Name = faker.name.firstName() 
-    async firstName(){
-       await  this.firstNameElement.setValue(this.first_Name);
-    }
-    get lastNameElement(){
-        return $("#customer_lastname")
-    }
+    get title() { return $("//input[@id='id_gender2']") }
+    get firstName() { return $("//input[@id='customer_firstname']") }
+    get lastName() { return $("//input[@id='customer_lastname']") }
+    get passwordTextbox() { return $("//input[@id='passwd']") }
+    get dateDropdown() { return $("//select[@id='days']") }
+    get monthDropdown() { return $("//select[@id='months']") }
+    get yearDropdown() { return $("//select[@id='years']") }
+    get check() { return $("//input[@id='optin']") }
+    get companyName() { return $("//input[@id='company']") }
+    get address1() { return $("//input[@id='address1']") }
+    get cityName() { return $("//input[@id='city']") }
+    get stateName() { return $("//select[@id='id_state']") }
+    get countryName() { return $("//select[@id='id_country']") }
+    get postalcode() { return $("//input[@id='postcode']") }
+    get mobNumber() { return $("//input[@id='phone_mobile']") }
+    get aliasAdd() { return $("//input[@id='alias']") }
+    get registerBtn() { return $("//span[text()='Register']") }
+    get headerElement() { return $("//h1[@class='page-heading']") }
 
-    last_name = faker.name.lastName()
-    async lastName(){
-       await this.lastNameElement.setValue(this.last_name);
-    }
-    get f_emailElement(){
-        return $("//input[@id='email']")
-    }
-    async f_email(){
-      await this.f_emailElement.setValue(Data.email);
-    }
-    get passwordElement(){
-        return $("//input[@id='passwd']");
-    }
-    async password(){
-      await  this.passwordElement.setValue(Data.password);
-    }
-    get  daysElement(){
-        return $("//select[@id='days']")
-    }
-    async days(){
-       await this.daysElement.selectByAttribute("value",Data.DateOfBirth.day);
-    }
-    get  monthsElement(){
-        return $("//select[@id='months']")
-    }
-    async months(){
-        await this.monthsElement.selectByAttribute("value",Data.DateOfBirth.month)
-    }
-    get yearsElement(){
-        return $("//select[@id='years']")
-    }
-    async years(){
-        await this.yearsElement.selectByAttribute("value",Data.DateOfBirth.year)
-    }
-    get newsLetterCheckBoxElement(){
-        return $("//input[@type='checkbox' and @id='newsletter']")
-    }
-    async clickLetterCheckBox(){
-        await this.newsLetterCheckBoxElement.click();
+    async clickTitle() {
+        await this.title.click()
     }
 
-    get CheckBox2Element(){
-        return $("//input[@type='checkbox' and @id='optin']")
-    }
-    async CheckBox2(){
-        await this.CheckBox2Element.click();
+    async setFirstAndLastName(name: { firstname: string, lastname: string }) {
+        await this.firstName.setValue(name.firstname)
+        await this.lastName.setValue(name.lastname)
     }
 
-    get address_FirstNameElement(){
-        return $("[id='firstname']")
-    }
-    async address_firstName(){
-        await this.address_FirstNameElement.setValue(this.first_Name)
-    }
-    get address_LastNameElement(){
-        return $("[id='lastname']")
-    }
-    async address_lastName(){
-        await this.address_LastNameElement.setValue(this.last_name)
+    async setPassword(password: string) {
+        await this.passwordTextbox.setValue(password)
     }
 
-    get companyElement(){
-        return $("[id='company']")
-    }
-    async company(){
-        await this.companyElement.setValue(Data.company)
-    }
-    get addressElement(){
-        return $("[id='address1']")
-    }
-    async address(){
-        await this.addressElement.setValue(Data.Address)
-    }
-    get address2Element(){
-        return $("[id='address2']")
-    }
-    async address2(){
-        await this.address2Element.setValue(Data.Address);
+    async selectDateOfBirth(date: { day: number, month: number, year: number }) {
+        await this.dateDropdown.selectByIndex(date.day)
+        await this.monthDropdown.selectByAttribute('value', date.month)
+        await this.yearDropdown.selectByIndex(date.year)
     }
 
-    get cityElement(){
-        return $("[id='city']")
-    }
-    async city(){
-        await this.cityElement.setValue(Data.City)
-    }
-    get stateElement(){
-        return $("//select[@id='id_state']");
-    }
-    async state(){
-        await this.stateElement.selectByVisibleText(Data.state)
+    async clickCheck() {
+        await this.check.click()
     }
 
-    get postalCodeElement(){
-        return $("[id='postcode']");
-    }
-    async postalCode(){
-        await this.postalCodeElement.setValue(Data.PostalCode)
-    }
-    get countryElement(){
-        return $("[id='id_country']")
-    }
-    async country(){
-        await this.countryElement.selectByVisibleText("United States")
+    async setCompany(company: string) {
+        await this.companyName.setValue(company)
     }
 
-    get additionalElement(){
-        return $("//textarea[@name='other']") ;   
-    }
-    async additional(){
-        await this.additionalElement.setValue(Data.AdditionalInfo)
-    }
-
-    get homePhoneElement(){
-        return $("//input[@name='phone']")
-    }
-    async homePhone(){
-        await this.homePhoneElement.setValue(Data.PhoneNumber)
+    async setAddress(address: { address1: string, pincode: number, city: string }) {
+        await this.address1.setValue(address.address1)
+        await this.cityName.setValue(address.city)
+        await this.stateName.selectByIndex(3)
+        await this.countryName.selectByIndex(1)
+        await this.postalcode.setValue(address.pincode)
     }
 
-    get mobilePhoneElement(){
-        return $("//input[@name='phone_mobile']")
-    }
-    async mobilePhone(){
-        await this.mobilePhoneElement.setValue(Data.PhoneNumber)
-    }
-    get assignAddressElement(){
-        return $("//input[@name='alias']")
+    async setMobileNumber(mobileNumber: string) {
+        await this.mobNumber.setValue(mobileNumber)
     }
 
-    async assignAddress(){
-        await this.assignAddressElement.setValue(Data.AliasAddress)
+    async setAliasAddress(myaddress: string) {
+        await this.aliasAdd.setValue(myaddress)
     }
 
-    get registerElement(){
-        return $("//button[@name='submitAccount']")
+    async clickRegister() {
+        await this.registerBtn.click()
     }
-
-    async register(){
-        await this.registerElement.click();
-    }
-
 }
 export default new SignUpPage()

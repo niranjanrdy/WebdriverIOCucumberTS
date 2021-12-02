@@ -1,20 +1,19 @@
 {
-    "email" :"niowfg@automation.com",
-    "firstName":"Niranjan",
-    "lastName":"Reddy",
-    "password":"jdgkij54",
-    "DateOfBirth":{
-        "day":"20",
-        "month":"8",
-        "year":"1998"
+    "names" : {
+        "firstname": "john",
+        "lastname" : "chris"
     },
-    "company":"jdport.pvtltd",
-    "Address":"somewhere",
-    "City":"Down Town",
-    "state":"Arizona",
-    "PostalCode":"00000",
-    "AdditionalInfo":"Not Classified",
-    "PhoneNumber": "0123654789",
-    "AliasAddress":"Nikhil in USA"
-
+    "dateOfBirth": {
+        "day": 4,
+        "month": 5,
+        "year": 4
+    },
+    "company": "xyz",
+    "address" : {
+        "address1": "1st line",
+        "pincode": 11111,
+        "city": "city"
+    },
+    "mobileNumber": "123456789",
+    "aliasAdd": "My address"
 }
